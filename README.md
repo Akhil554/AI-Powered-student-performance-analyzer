@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 text
 # AI-Powered Student Performance Predictor
 
@@ -109,3 +110,7 @@ Frontend: http://localhost:8080
 Backend API: http://localhost:5000
 
 Health Check: http://localhost:5000/health
+=======
+# AI-Powered-student-performance-analyzer
+AI student performance analyzer to predict and analyze the student performance based on their marks.
+>>>>>>> e6a792939ddac6bc72be07bc6dc684aaf881de3f
