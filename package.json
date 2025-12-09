@@ -1,0 +1,59 @@
+{
+  "name": "ai-student-performance-predictor",
+  "version": "1.0.0",
+  "description": "AI-Powered Student Performance Predictor - A machine learning system to predict student academic outcomes and provide early intervention alerts",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "live-server .",
+    "dev": "live-server --port=3000 --open=/index.html"
+  },
+  "keywords": [
+    "ai",
+    "machine-learning",
+    "education",
+    "student-performance",
+    "predictive-analytics",
+    "early-warning-system",
+    "educational-data-mining"
+  ],
+  "author": "CHILUKUIR AKHIL",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akhil554/ai-student-performance-predictor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/ai-student-performance-predictor/issues"
+  },
+  "homepage": "https://github.com/yourusername/ai-student-performance-predictor#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "technologies": {
+    "frontend": [
+      "HTML5",
+      "CSS3",
+      "Vanilla JavaScript",
+      "Chart.js",
+      "Font Awesome"
+    ],
+    "ml-features": [
+      "Performance Prediction Algorithm",
+      "Risk Assessment",
+      "Feature Importance Analysis",
+      "Early Warning System"
+    ]
+  },
+  "features": [
+    "Student data entry and management",
+    "AI-powered performance prediction",
+    "Risk level assessment (Low/Medium/High)",
+    "Interactive analytics dashboard",
+    "Customizable prediction model weights",
+    "Early intervention recommendations",
+    "Data export functionality",
+    "Responsive design for mobile and desktop"
+  ]
+}

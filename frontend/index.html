@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Student Performance Predictor</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-brand">
+      <i class="fas fa-brain"></i>
+      <h3>AI Performance Predictor</h3>
+    </div>
+    <div class="nav-menu">
+      <a href="#" class="nav-link active" data-section="home">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <a href="#" class="nav-link" data-section="add-student">
+        <i class="fas fa-user-plus"></i> Add Student
+      </a>
+      <a href="#" class="nav-link" data-section="dashboard">
+        <i class="fas fa-chart-line"></i> Dashboard
+      </a>
+      <a href="#" class="nav-link" data-section="students">
+        <i class="fas fa-users"></i> Students
+      </a>
+      <a href="#" class="nav-link" data-section="analytics">
+        <i class="fas fa-analytics"></i> Analytics
+      </a>
+      <a href="#" class="nav-link" data-section="settings">
+        <i class="fas fa-cog"></i> Settings
+      </a>
+    </div>
+    <div class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+  <!-- Home Section -->
+  <section id="home" class="section active">
+    <div class="container">
+      <div class="hero">
+        <h1>AI-Powered Student Performance Predictor</h1>
+        <p class="hero-subtitle">Leverage machine learning to identify at-risk students and improve academic outcomes through data-driven insights.</p>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 id="total-students">248</h3>
+            <p>Total Students</p>
+          </div>
+          <div class="metric-card risk">
+            <div class="metric-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 id="at-risk-students">31</h3>
+            <p>At-Risk Students</p>
+          </div>
+          <div class="metric-card success">
+            <div class="metric-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 id="average-gpa">2.94</h3>
+            <p>Average GPA</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <h3 id="attendance-rate">78.2%</h3>
+            <p>Attendance Rate</p>
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-brain"></i>
+            <h3>AI Prediction</h3>
+            <p>Advanced machine learning algorithms analyze student data to predict academic outcomes with high accuracy.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-bell"></i>
+            <h3>Early Alerts</h3>
+            <p>Proactive identification of at-risk students enables timely interventions and support.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chart-bar"></i>
+            <h3>Analytics Dashboard</h3>
+            <p>Comprehensive visualizations and reports provide insights into student performance trends.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-user-shield"></i>
+            <h3>Privacy First</h3>
+            <p>All student data is protected with industry-standard security and privacy measures.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Student Section -->
+  <section id="add-student" class="section">
+    <div class="container">
+      <div class="page-header">
+        <h2><i class="fas fa-user-plus"></i> Add New Student</h2>
+        <p>Enter student information to generate performance predictions</p>
+      </div>
+
+      <form id="student-form" class="student-form">
+        <div class="form-section">
+          <h3><i class="fas fa-user"></i> Personal Information</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="student-id">Student ID</label>
+              <input type="text" id="student-id" required>
+            </div>
+            <div class="form-group">
+              <label for="student-name">Full Name</label>
+              <input type="text" id="student-name" required>
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" id="age" min="16" max="30" required>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="semester">Current Semester</label>
+              <select id="semester" required>
+                <option value="">Select Semester</option>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+                <option value="3">3rd Semester</option>
+                <option value="4">4th Semester</option>
+                <option value="5">5th Semester</option>
+                <option value="6">6th Semester</option>
+                <option value="7">7th Semester</option>
+                <option value="8">8th Semester</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3><i class="fas fa-graduation-cap"></i> Academic Performance</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="previous-gpa">Previous GPA</label>
+              <input type="number" id="previous-gpa" step="0.01" min="0" max="4" required>
+            </div>
+            <div class="form-group">
+              <label for="attendance">Attendance %</label>
+              <input type="number" id="attendance" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+              <label for="assignment-scores">Assignment Scores (Avg)</label>
+              <input type="number" id="assignment-scores" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+              <label for="midterm-scores">Midterm Scores (Avg)</label>
+              <input type="number" id="midterm-scores" min="0" max="100" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3><i class="fas fa-laptop"></i> Behavioral & Engagement Data</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="study-hours">Study Hours per Week</label>
+              <input type="number" id="study-hours" min="0" max="50" required>
+            </div>
+            <div class="form-group">
+              <label for="lms-logins">LMS Logins (Monthly)</label>
+              <input type="number" id="lms-logins" min="0" required>
+            </div>
+            <div class="form-group">
+              <label for="forum-posts">Forum Posts</label>
+              <input type="number" id="forum-posts" min="0">
+            </div>
+            <div class="form-group">
+              <label for="parent-education">Parent Education</label>
+              <select id="parent-education">
+                <option value="">Select Level</option>
+                <option value="High School">High School</option>
+                <option value="Bachelor">Bachelor's Degree</option>
+                <option value="Master">Master's Degree</option>
+                <option value="PhD">PhD</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="financial-status">Financial Status</label>
+              <select id="financial-status">
+                <option value="">Select Status</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" onclick="resetForm()">
+            <i class="fas fa-undo"></i> Reset
+          </button>
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-calculator"></i> Predict Performance
+          </button>
+        </div>
+      </form>
+      <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Calculating prediction...</p>
+      </div>
+
+      <!-- Prediction Result -->
+      <div id="prediction-result" class="prediction-result" style="display: none;">
+        <h3><i class="fas fa-chart-line"></i> Prediction Results</h3>
+        <div class="prediction-cards">
+          <div class="prediction-card">
+            <div class="prediction-label">Risk Level</div>
+            <div id="risk-level" class="risk-level"></div>
+          </div>
+          <div class="prediction-card">
+            <div class="prediction-label">Pass/Fail Probability</div>
+            <div id="pass-fail-prob" class="probability"></div>
+          </div>
+          <div class="prediction-card">
+            <div class="prediction-label">Predicted Grade</div>
+            <div id="predicted-grade" class="grade"></div>
+          </div>
+        </div>
+        <div id="recommendations" class="recommendations">
+          <h4><i class="fas fa-lightbulb"></i> Recommendations</h4>
+          <ul id="recommendation-list"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="error-message" class="error-message" style="display: none;">
+    <p id="error-text"></p>
+    <button onclick="hideError()">Dismiss</button>
+  </div>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="section">
+    <div class="container">
+      <div class="page-header">
+        <h2><i class="fas fa-chart-line"></i> Performance Dashboard</h2>
+        <p>Comprehensive analytics and visualizations</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="chart-container">
+          <h3 class="hh">Risk Distribution</h3>
+          <canvas id="risk-chart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3 class="hh">Performance Trends</h3>
+          <canvas id="performance-chart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3 class="hh">Feature Importance</h3>
+          <canvas id="feature-chart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3 class="hh">Attendance vs Performance</h3>
+          <canvas id="attendance-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Students Section -->
+  <section id="students" class="section">
+    <div class="container">
+      <div class="page-header">
+        <h2><i class="fas fa-users"></i> Student Management</h2>
+        <p>View and manage all student records</p>
+        <button class="btn-primary" onclick="exportStudentData()">
+          <i class="fas fa-download"></i> Export Data
+        </button>
+      </div>
+
+      <div class="table-controls">
+        <input type="text" id="search-students" placeholder="Search students...">
+        <select id="filter-risk">
+          <option value="">All Risk Levels</option>
+          <option value="Low">Low Risk</option>
+          <option value="Medium">Medium Risk</option>
+          <option value="High">High Risk</option>
+        </select>
+      </div>
+
+      <div class="table-container">
+        <table id="students-table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Semester</th>
+            <th>GPA</th>
+            <th>Attendance</th>
+            <th>Risk Level</th>
+            <th>Predicted Grade</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody id="students-tbody">
+          <!-- Students will be populated here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analytics Section -->
+  <section id="analytics" class="section">
+    <div class="container">
+      <div class="page-header">
+        <h2><i class="fas fa-analytics"></i> Advanced Analytics</h2>
+        <p>Detailed insights and statistical analysis</p>
+      </div>
+
+      <div class="analytics-grid">
+        <div class="analytics-card">
+          <h3>Model Performance</h3>
+          <div class="metric-list">
+            <div class="metric-item">
+              <span>Accuracy</span>
+              <span class="metric-value">87.3%</span>
+            </div>
+            <div class="metric-item">
+              <span>Precision</span>
+              <span class="metric-value">82.1%</span>
+            </div>
+            <div class="metric-item">
+              <span>Recall</span>
+              <span class="metric-value">89.5%</span>
+            </div>
+            <div class="metric-item">
+              <span>F1-Score</span>
+              <span class="metric-value">85.6%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-card">
+          <h3>Intervention Success</h3>
+          <div class="intervention-stats">
+            <div class="stat-circle">
+              <span class="percentage">67%</span>
+              <span class="label">Success Rate</span>
+            </div>
+            <ul>
+              <li>Early interventions: 156 students</li>
+              <li>Improved performance: 105 students</li>
+              <li>Maintained grade: 42 students</li>
+              <li>Ongoing support: 9 students</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="analytics-card full-width">
+          <h3>Correlation Matrix</h3>
+          <canvas id="correlation-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Settings Section -->
+  <section id="settings" class="section">
+    <div class="container">
+      <div class="page-header">
+        <h2><i class="fas fa-cog"></i> System Settings</h2>
+        <p>Configure prediction models and alert thresholds</p>
+      </div>
+
+      <div class="settings-grid">
+        <div class="settings-card">
+          <h3>Model Configuration</h3>
+          <div class="setting-group">
+            <label>Previous GPA Weight (%)</label>
+            <input type="range" id="gpa-weight" min="0" max="50" value="25">
+            <span id="gpa-weight-value">25%</span>
+          </div>
+          <div class="setting-group">
+            <label>Attendance Weight (%)</label>
+            <input type="range" id="attendance-weight" min="0" max="50" value="20">
+            <span id="attendance-weight-value">20%</span>
+          </div>
+          <div class="setting-group">
+            <label>Assignment Weight (%)</label>
+            <input type="range" id="assignment-weight" min="0" max="30" value="15">
+            <span id="assignment-weight-value">15%</span>
+          </div>
+          <div class="setting-group">
+            <label>Study Hours Weight (%)</label>
+            <input type="range" id="study-weight" min="0" max="30" value="15">
+            <span id="study-weight-value">15%</span>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Alert Thresholds</h3>
+          <div class="setting-group">
+            <label>High Risk Threshold</label>
+            <input type="number" id="high-risk-threshold" value="0.3" step="0.05" min="0" max="1">
+          </div>
+          <div class="setting-group">
+            <label>Medium Risk Threshold</label>
+            <input type="number" id="medium-risk-threshold" value="0.6" step="0.05" min="0" max="1">
+          </div>
+          <div class="setting-group">
+            <label>Email Notifications</label>
+            <label class="switch">
+              <input type="checkbox" id="email-notifications" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-actions">
+        <button class="btn-secondary" onclick="resetSettings()">
+          <i class="fas fa-undo"></i> Reset to Defaults
+        </button>
+        <button class="btn-primary" onclick="saveSettings()">
+          <i class="fas fa-save"></i> Save Settings
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>AI Performance Predictor</h4>
+        <p>Empowering educators with data-driven insights to improve student outcomes.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Features</h4>
+        <ul>
+          <li>Performance Prediction</li>
+          <li>Risk Assessment</li>
+          <li>Early Alerts</li>
+          <li>Analytics Dashboard</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li>Documentation</li>
+          <li>API Reference</li>
+          <li>Contact Support</li>
+          <li>Privacy Policy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 AI Performance Predictor. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
